@@ -1,0 +1,15 @@
+= form_tag blogs_path, method: :post do
+  = label_tag :title, 'Title:'
+  = text_field_tag :title
+  = submit_tag 'Save Changes'
+- if @errors
+  - @errors.each do |key, value|
+    %span{style: 'color: red'}
+      = "#{key}: #{value}"
+%h1
+  BLOGS
+- if @result
+  %ol
+    - @result.each do |blog|
+      %li
+        = blog.title
